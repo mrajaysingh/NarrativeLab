@@ -151,19 +151,19 @@ export default function LandingPage({ onStart, onPurchase }: LandingPageProps) {
       `}</style>
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] sm:min-h-[70vh] flex flex-col items-center justify-center text-center px-4 overflow-visible reveal reveal-active -mt-20 sm:-mt-24">
+      <section className="relative min-h-[50vh] sm:min-h-[60vh] flex flex-col items-center justify-start text-center px-4 overflow-visible reveal reveal-active -mt-16 sm:-mt-20">
         <div className="absolute inset-0 architectural-grid pointer-events-none -z-10" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[900px] aspect-square bg-apple-blue/10 rounded-full blur-[140px] pointer-events-none opacity-40 -z-10" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[900px] aspect-square bg-apple-blue/10 rounded-full blur-[140px] pointer-events-none opacity-40 -z-10" />
         
-        <div className="relative z-10 max-w-4xl mx-auto space-y-8 pt-8 sm:pt-12">
-          <div className="space-y-6">
-            <div className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-apple-blue/10 dark:bg-white/10 text-apple-blue dark:text-white text-[10px] font-bold uppercase tracking-[0.4em] border border-apple-blue/20 backdrop-blur-xl animate-pulse">
+        <div className="relative z-10 max-w-4xl mx-auto space-y-6 pt-6 sm:pt-10">
+          <div className="space-y-4">
+            <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-apple-blue/10 dark:bg-white/10 text-apple-blue dark:text-white text-[10px] font-bold uppercase tracking-[0.4em] border border-apple-blue/20 backdrop-blur-xl animate-pulse">
               <span className="w-1 h-1 rounded-full bg-current"></span>
               <span>Elite Narrative Intelligence</span>
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter text-apple-gray-900 dark:text-white leading-[0.95] sm:leading-[0.9] uppercase">
               Architect Your <br />
-              <span className="serif italic text-apple-blue lowercase font-light">Influence.</span>
+              <span className="serif italic text-apple-blue lowercase font-light">influence.</span>
             </h1>
           </div>
           
@@ -318,7 +318,7 @@ export default function LandingPage({ onStart, onPurchase }: LandingPageProps) {
                       </div>
                     ) : (
                       <div className="w-6 h-6 rounded-full bg-apple-gray-100 dark:bg-apple-gray-800 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-3 h-3 text-apple-gray-300 dark:text-apple-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 text-apple-gray-300 dark:text-apple-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </div>
