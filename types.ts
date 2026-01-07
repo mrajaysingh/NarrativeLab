@@ -1,4 +1,30 @@
 
+export type Role = 'USER' | 'ADMIN';
+
+export interface User {
+  id: string;
+  email: string;
+  hasPaid: boolean;
+  plan?: 'Seed' | 'Growth' | 'Authority';
+  role: Role;
+  tokensUsed: number;
+  tokensLimit: number;
+}
+
+export interface AuthResponse {
+  user: User;
+  token: string;
+}
+
+export interface SystemAnalytics {
+  totalUsers: number;
+  activeToday: number;
+  revenue: number;
+  dbStatus: 'Healthy' | 'Degraded' | 'Critical';
+  redisStatus: 'Connected' | 'Disconnected';
+  synthesisCount: number;
+}
+
 export interface DiscoveryAnswers {
   audience: string;
   goal: string;

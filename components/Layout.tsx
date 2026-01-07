@@ -1,13 +1,17 @@
 
 import React, { PropsWithChildren } from 'react';
+import { User } from '../types';
 
 interface LayoutProps {
   onReset: () => void;
   isDarkMode: boolean;
   onToggleTheme: () => void;
+  user?: User | null;
+  onLogout?: () => void;
+  onSignIn?: () => void;
 }
 
-export default function Layout({ children, onReset, isDarkMode, onToggleTheme }: PropsWithChildren<LayoutProps>) {
+export default function Layout({ children, onReset, isDarkMode, onToggleTheme, user, onLogout, onSignIn }: PropsWithChildren<LayoutProps>) {
   return (
     <div className="min-h-screen flex flex-col font-sans transition-colors duration-300">
       <header className="fixed top-0 left-0 right-0 z-[100] glass bg-white/70 dark:bg-black/70 border-b border-apple-gray-200 dark:border-apple-gray-800 px-6 py-4 flex justify-between items-center">
@@ -22,7 +26,7 @@ export default function Layout({ children, onReset, isDarkMode, onToggleTheme }:
           </div>
         </div>
 
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4 sm:space-x-6">
           <button 
             onClick={onToggleTheme}
             className="p-2 rounded-full hover:bg-apple-gray-100 dark:hover:bg-apple-gray-800 transition-colors text-apple-gray-600 dark:text-apple-gray-400"
@@ -34,23 +38,39 @@ export default function Layout({ children, onReset, isDarkMode, onToggleTheme }:
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
             )}
           </button>
+          
+          {user ? (
+            <div className="flex items-center space-x-3 bg-apple-gray-50 dark:bg-apple-gray-800 px-3 py-1.5 rounded-full border border-apple-gray-200 dark:border-apple-gray-700">
+              <span className={`w-2 h-2 rounded-full ${user.hasPaid ? 'bg-green-500' : 'bg-apple-gray-300'}`}></span>
+              <span className="text-xs font-bold text-apple-gray-600 dark:text-apple-gray-300 truncate max-w-[100px]">{user.email.split('@')[0]}</span>
+              <button onClick={onLogout} className="text-[10px] font-black uppercase text-apple-gray-400 hover:text-red-500 transition-colors">Out</button>
+            </div>
+          ) : (
+            <button 
+              onClick={onSignIn}
+              className="text-xs font-bold text-apple-blue uppercase tracking-widest hover:opacity-70 transition-opacity"
+            >
+              Sign In
+            </button>
+          )}
+
           <button 
             onClick={onReset}
-            className="text-sm font-medium text-apple-gray-500 hover:text-apple-blue dark:text-apple-gray-400 dark:hover:text-white transition-colors"
+            className="hidden sm:block text-sm font-medium text-apple-gray-500 hover:text-apple-blue dark:text-apple-gray-400 dark:hover:text-white transition-colors"
           >
             Restart
           </button>
         </div>
       </header>
 
-      <main className="flex-grow flex flex-col items-center pt-24 sm:pt-32 pb-16 px-4">
+      <main className="flex-grow flex flex-col items-center pt-20 sm:pt-24 pb-16 px-4">
         <div className="w-full max-w-7xl">
           {children}
         </div>
       </main>
 
       <footer className="py-12 text-center text-apple-gray-400 dark:text-apple-gray-600 text-[13px] tracking-tight">
-        Elite Narrative Strategist • Built for Clarity and Impact
+        Elite Narrative Strategist • Secure Architecture
       </footer>
     </div>
   );
