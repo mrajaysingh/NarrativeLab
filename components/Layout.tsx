@@ -63,7 +63,7 @@ export default function Layout({ children, onReset, isDarkMode, onToggleTheme, u
         </div>
       </header>
 
-      <main className="flex-grow flex flex-col items-center pt-20 sm:pt-24 pb-16 px-4">
+      <main className="flex-grow flex flex-col items-center pt-20 sm:pt-0 pb-16 px-4">
         <div className="w-full max-w-7xl">
           {children}
         </div>
