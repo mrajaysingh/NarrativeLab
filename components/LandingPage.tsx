@@ -115,7 +115,7 @@ export default function LandingPage({ onStart, onPurchase }: LandingPageProps) {
   ];
 
   return (
-    <div className="w-full space-y-24 sm:space-y-48">
+    <div className="w-full space-y-16 sm:space-y-24">
       <style>{`
         .reveal {
           opacity: 0;
